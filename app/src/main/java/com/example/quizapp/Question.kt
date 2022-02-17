@@ -6,5 +6,5 @@ data class Question(
     val question: String,
     val image: Int,
     val options: ArrayList<Option>,
-    val correctAnswer: Int
+    val correctAnswer: String
 )
