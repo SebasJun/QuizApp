@@ -1,5 +1,6 @@
 package com.example.quizapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.quizapp.Constants.getQuestions
@@ -67,7 +68,13 @@ class QuizQuestion : AppCompatActivity() {
         }
     }
     private fun showFinishScreen(){
-        println("FINISHED WITH TOTALPOINTS OF $totalPoints")
+
+        val myIntent = Intent(this, FinishScreen::class.java)
+        myIntent.putExtra("name",getIntent().getStringExtra("name"));
+        myIntent.putExtra("totalPoints",totalPoints);
+        myIntent.putExtra("totalSize",totalSize);
+        startActivity(myIntent)
+        finish()
     }
 
 }

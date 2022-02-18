@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizApp">
         <activity
+            android:name=".FinishScreen"
+            android:exported="false" />
+        <activity
             android:name=".QuizQuestion"
             android:exported="false" />
         <activity

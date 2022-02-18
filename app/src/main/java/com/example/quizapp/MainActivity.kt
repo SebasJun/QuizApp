@@ -13,9 +13,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.buttonStart.setOnClickListener {
-            println("Name is = " + "'" + binding.name.text+ "'")
+
             if(validateName(binding.name.text.toString(), binding) != "ERROR"){
-                startActivity(Intent(this, QuizQuestion::class.java))
+                val myIntent = Intent(this, QuizQuestion::class.java)
+                myIntent.putExtra("name",binding.name.text.toString());
+                startActivity(myIntent)
                 finish()
             }
         }
