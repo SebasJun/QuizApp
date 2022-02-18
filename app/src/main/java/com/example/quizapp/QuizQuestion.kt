@@ -21,6 +21,7 @@ class QuizQuestion : AppCompatActivity() {
         val questionList = getQuestions()
 
         totalSize = questionList.size
+        binding.pb.max = totalSize
 
         nextQuestion(questionList, binding)
 
@@ -60,6 +61,9 @@ class QuizQuestion : AppCompatActivity() {
             binding.answerFour.setText(questionList[currentIteration].options[3].title);
 
             correctAnswer = questionList[currentIteration].correctAnswer
+
+            binding.pb.setProgress(currentIteration+1)
+            binding.pbText.setText((currentIteration + 1).toString() + "/" + totalSize.toString())
         }
     }
     private fun checkScore(answer: String){
